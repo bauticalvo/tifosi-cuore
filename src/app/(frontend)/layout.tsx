@@ -1,23 +1,19 @@
 import React from 'react'
-import './styles.css'
+import '../../styles/globals.css'
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
+  description: 'Dentro de cada hincha',
   title: 'Tifosi Cuore',
-  icon: [
-    {
-      rel: 'icon',
-      type: 'image/png',
-      url: '/tifosi_logo.png',
-    },
-  ],
+  icons: {
+    icon: '/tifosi_logo.svg',
+  },
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en">
+    <html lang="es">
       <body>
         <main>{children}</main>
       </body>

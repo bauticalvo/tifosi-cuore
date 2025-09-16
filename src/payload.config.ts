@@ -19,6 +19,12 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      graphics: {
+        Logo: '/components/payload/Logo.tsx',
+        Icon: '/components/payload/Icon',
+      },
+    },
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
