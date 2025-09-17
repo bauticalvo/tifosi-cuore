@@ -1,13 +1,12 @@
 import { headers as getHeaders } from 'next/headers.js'
-import Image from 'next/image'
 import { getPayload } from 'payload'
 import React from 'react'
-import { fileURLToPath } from 'url'
 
 import config from '@/payload.config'
 import './styles.css'
-import Landing from './src/components/Landing'
+import Landing from './src/components/Landing/Landing'
 import { Header } from './src/components/Header/Header'
+import { Footer } from './src/components/Footer/Footer'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -19,6 +18,7 @@ export default async function HomePage() {
     <div className="bg-background font-primary">
       <Header />
       <Landing />
+      <Footer />
     </div>
   )
 }

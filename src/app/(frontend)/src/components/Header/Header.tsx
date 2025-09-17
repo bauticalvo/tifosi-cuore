@@ -17,10 +17,10 @@ export const Header = () => {
 
   return (
     <header className="fixed top-0 z-1000 text-white bg-primary flex flex-col justify-between  items-center w-full   text-base  ">
-      <section className="h-[2vh] flex items-center justify-center">
+      {/* <section className="h-[2vh] flex items-center justify-center">
         <OverHeader />
-      </section>
-      <section className="border-y border-light w-full h-[7vh] py-1 px-8">
+      </section> */}
+      <section className="border-b border-light w-full h-[7vh] py-1 px-8">
         <img src="/logo_acortado.svg" alt="tifosi_logo" className="h-full w-auto" />
       </section>
       <section className="w-full h-[4vh]">
