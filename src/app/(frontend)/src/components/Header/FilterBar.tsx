@@ -56,30 +56,38 @@ export const FilterBar = () => {
       <button
         onMouseEnter={() => handleMouseEnterButton(index)}
         onMouseLeave={handleMouseLeaveButton}
-        className="text-2xl font-light group relative flex items-center h-full px-4 py-2 transition-colors hover:text-tertiary"
+        className="text-xl 2xl:text-2xl font-light group relative flex items-center h-full px-4 py-2 transition-colors hover:text-tertiary"
       >
-        <p className="text-2xl font-light group relative">{text}</p>
+        <p className="group relative">{text}</p>
         <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-tertiary transition-all duration-300 ease-out group-hover:w-full"></span>
       </button>
     )
   }
 
   return (
-    <div className="w-full h-full border-b border-light/20 flex items-center justify-start space-x-6 px-8 relative">
-      <CustomButton text="Tienda" index={1} />
-      <CustomButton text="Colecciones" index={2} />
-      <CustomButton text="Más" index={3} />
+    <div className="w-full h-full border-b border-light/20 flex items-center justify-between space-x-6 px-8 relative">
+      <section className="hidden md:flex w-full">
+        <CustomButton text="Tienda" index={1} />
+        <CustomButton text="Colecciones" index={2} />
+        <CustomButton text="Más" index={3} />
+      </section>
+      <section className="flex md:hidden">
+        <CustomButton text="MENU" index={6} />
+      </section>
+      <section>
+        <CustomButton text="Cart" index={4} />
+      </section>
 
       {/* Menú desplegable */}
       {(isHovered === 1 || isHovered === 2 || isHovered === 3) && (
         <div
           ref={menuRef}
-          className="absolute top-full left-0 w-full  backdrop-blur-sm shadow-xl z-50 border-t border-light/10"
+          className="absolute top-full left-0 w-full hidden md:flex backdrop-blur-sm shadow-xl z-50 border-t border-light/10"
           onMouseEnter={handleMouseEnterMenu}
           onMouseLeave={handleMouseLeaveMenu}
         >
           {isHovered === 1 && (
-            <div className="">
+            <div className="w-full">
               <ShopMenu
                 columns={ShopMenuElements.columns}
                 imageColumns={ShopMenuElements.imageColumns.map((item) => ({
@@ -90,7 +98,7 @@ export const FilterBar = () => {
             </div>
           )}
           {isHovered === 2 && (
-            <div className="">
+            <div className="w-full">
               <ShopMenu
                 columns={ColectionMenuElements.columns}
                 imageColumns={ColectionMenuElements.imageColumns.map((item) => ({
@@ -101,7 +109,7 @@ export const FilterBar = () => {
             </div>
           )}
           {isHovered === 3 && (
-            <div className="">
+            <div className="w-full">
               <ShopMenu
                 columns={MoreMenuElements.columns}
                 imageColumns={MoreMenuElements.imageColumns?.map((item) => ({

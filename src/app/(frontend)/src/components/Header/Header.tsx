@@ -1,29 +1,43 @@
 'use client'
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
 import FilterBar from './FilterBar'
-import { OverHeader } from './OverHeader'
 
 export const Header = () => {
-  //   const CartButton = () =>{
+  const logoSection = useRef<HTMLDivElement>(null)
 
-  //     return (
-  //         <button
-  //           onClick={() => setIsCartOpen(true)}
-  //           className="flex space-x-2 text-ascensor/90 text-xl items-center">
-  //           <FaShoppingCart className="" />
-  //           <span className="">{cart.length}</span>
-  //         </button>
-  //     )
-  //   }
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const maxScroll = 100 // hasta dónde desaparece
+      const progress = Math.min(scrollY / maxScroll, 1) // valor entre 0 y 1
+
+      // animamos dinámicamente según el progreso
+      gsap.to(logoSection.current, {
+        scaleY: 1 - progress,
+        opacity: 1 - progress,
+        transformOrigin: 'top',
+        duration: 0, // instantáneo (sin delay entre frames)
+      })
+
+      // ocultar visualmente cuando llega a 0
+      if (progress === 1 && logoSection.current) {
+        logoSection.current.style.display = 'none'
+      } else if (logoSection.current) {
+        logoSection.current.style.display = 'block'
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <header className="fixed top-0 z-1000 text-white bg-primary flex flex-col justify-between  items-center w-full   text-base  ">
-      {/* <section className="h-[2vh] flex items-center justify-center">
-        <OverHeader />
-      </section> */}
-      <section className="border-b border-light w-full h-[7vh] py-1 px-8">
+    <header className="fixed top-0 z-1000 text-white bg-primary flex flex-col justify-between h-auto items-center w-full text-base">
+      <section ref={logoSection} className="w-full h-[7vh] py-1 px-8">
         <img src="/logo_acortado.svg" alt="tifosi_logo" className="h-full w-auto" />
       </section>
-      <section className="w-full h-[4vh]">
+      <section className="w-full h-[4vh] border-t border-light">
         <FilterBar />
       </section>
     </header>

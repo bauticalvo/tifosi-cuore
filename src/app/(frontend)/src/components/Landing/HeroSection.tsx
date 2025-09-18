@@ -17,7 +17,7 @@ export const HeroSection = () => {
         scrollTrigger: {
           trigger: document.body,
           start: 'top top',
-          end: '+=200%', // Scroll más largo para efecto más gradual
+          end: '+=100%', // Scroll más largo para efecto más gradual
           scrub: true,
           markers: false,
           onUpdate: (self) => {
@@ -30,7 +30,7 @@ export const HeroSection = () => {
       tl.to(
         textRef.current,
         {
-          y: 400,
+          y: 200,
           ease: 'none', // Control manual del easing
           modifiers: {
             y: (y) => {
@@ -49,26 +49,30 @@ export const HeroSection = () => {
   }, [])
 
   return (
-    <div className="bg-tertiary relative h-[60vh] w-full flex items-center justify-center bg-[url('/hero-bg.png')] bg-no-repeat bg-top bg-cover overflow-hidden">
+    <div className="bg-primary relative h-[40vh] md:h-[60vh] w-full flex items-center justify-center bg-[url('/hero-bg.png')] bg-no-repeat bg-top bg-cover overflow-hidden">
       {/* Imagen con parallax más lento */}
       <img
         style={{ opacity, transition: 'opacity 0.3s ease' }}
         src="/bloke_core.png"
         alt="bloke_core"
-        className="h-full object-cover object-top w-full z-20 absolute inset-0"
+        className="h-full object-cover object-top w-full z-20 absolute inset-0 shadow-primary"
       />
 
       {/* Texto con parallax más pronunciado */}
-      <section ref={textRef} className="absolute top-1/2 right-1/12 transform z-10 text-left">
+      <section ref={textRef} className="absolute top-10 right-1/6 transform z-10 text-left">
         <h1
-          className="text-[clamp(60px,15vw,230px)] text-transparent font-bold leading-[1] tracking-wide"
+          className={`
+            text-[clamp(60px,25vw,230px)] 
+            xl:text-[clamp(80px,20vw,200px)] 
+            2xl:text-[clamp(100px,30vw,280px)] 
+            text-transparent font-bold leading-[1] tracking-wide`}
           style={{
             WebkitTextStroke: '2px #275559', // Primer borde (externo)
             textShadow: `
-              4px 4px 0px #f0efd6,   /* Segundo borde */
-              -4px -4px 0px #f0efd6,
-              4px -4px 0px #f0efd6,
-              -4px 4px 0px #f0efd6
+              3px 3px 0px #f0efd6,   /* Segundo borde */
+              -3px -3px 0px #f0efd6,
+              3px -3px 0px #f0efd6,
+              -3px 3px 0px #f0efd6
             `,
           }}
         >

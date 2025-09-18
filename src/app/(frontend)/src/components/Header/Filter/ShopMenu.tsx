@@ -49,7 +49,7 @@ export const ShopMenu = ({
       <div className="flex-col flex items-center justify-center space-y-4 relative group">
         <img src={url} alt={title} className="w-auto h-[15vh] rounded-lg" />
         <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center">
-          <p className="text-light text-md  bg-primary px-4 rounded-lg group-hover:px-2 group-hover:bg-light group-hover:text-primary transition-all  ">
+          <p className="text-light text-xs 2xl:text-md  bg-primary px-4 rounded-md group-hover:px-2 group-hover:bg-light group-hover:text-primary transition-all  ">
             {title}
           </p>
         </div>
