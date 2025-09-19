@@ -49,7 +49,10 @@ export const HeroSection = () => {
   }, [])
 
   return (
-    <div className="bg-primary relative h-[40vh] md:h-[60vh] w-full flex items-center justify-center bg-[url('/hero-bg.png')] bg-no-repeat bg-top bg-cover overflow-hidden">
+    <div
+      className="bg-primary relative h-[40vh] md:h-[60vh] w-full flex items-center justify-center
+     bg-[url('/hero-bg.png')] bg-no-repeat bg-top bg-cover overflow-hidden"
+    >
       {/* Imagen con parallax más lento */}
       <img
         style={{ opacity, transition: 'opacity 0.3s ease' }}
@@ -65,7 +68,7 @@ export const HeroSection = () => {
             text-[clamp(60px,25vw,230px)] 
             xl:text-[clamp(80px,20vw,200px)] 
             2xl:text-[clamp(100px,30vw,280px)] 
-            text-transparent font-bold leading-[1] tracking-wide`}
+            text-transparent font-bold leading-[0.9] tracking-wide`}
           style={{
             WebkitTextStroke: '2px #275559', // Primer borde (externo)
             textShadow: `
