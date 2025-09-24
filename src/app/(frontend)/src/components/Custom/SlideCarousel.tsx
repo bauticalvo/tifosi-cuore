@@ -1,14 +1,10 @@
 'use client'
+import { Product } from '@/payload-types'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 import React, { useRef, useEffect, useState } from 'react'
 
-type Slide = {
-  id: number
-  image: string
-}
-
 type SlideCarouselProps = {
-  slides: Slide[]
+  slides: Product[]
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
@@ -48,7 +44,7 @@ export const SlideCarousel = ({ slides, setCurrentIndex }: SlideCarouselProps) =
         {[...slides, ...slides].map((card, index) => (
           <motion.div
             key={`${card.id}-${index}`}
-            className="w-[30vw] h-auto lg:w-[500px] lg:h-[600px]  flex-shrink-0"
+            className="w-[35vw] h-auto lg:w-[500px] lg:h-[600px]  flex-shrink-0"
           >
             <div
               className="w-full h-full relative"
@@ -62,9 +58,9 @@ export const SlideCarousel = ({ slides, setCurrentIndex }: SlideCarouselProps) =
               }}
             >
               <img
-                src={card.image}
+                src={card.images[0].url}
                 alt={`slide-${card.id}`}
-                className="w-full h-full object-cover border border-light  select-none"
+                className="w-full h-full object-cover border border-y-light border-x-primary bg-tertiary/80  select-none"
                 draggable="false"
                 onDragStart={(e) => e.preventDefault()}
               />

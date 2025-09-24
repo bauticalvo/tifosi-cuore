@@ -9,6 +9,10 @@ export const Products: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
   },
+  access: {
+    read: () => true,
+    update: () => true,
+  },
   fields: [
     {
       name: 'name',
