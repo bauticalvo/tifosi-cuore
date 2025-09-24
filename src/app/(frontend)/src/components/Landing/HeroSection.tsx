@@ -50,7 +50,7 @@ export const HeroSection = () => {
 
   return (
     <div
-      className="bg-primary relative h-[40vh] md:h-[60vh] w-full flex items-center justify-center
+      className="bg-primary relative h-[40vh] md:h-[60vh]  xl:h-[800px] 2xl:h-[70vh] w-full flex items-center justify-center
      bg-[url('/hero-bg.png')] bg-no-repeat bg-top bg-cover overflow-hidden"
     >
       {/* Imagen con parallax más lento */}

@@ -33,7 +33,7 @@ export const Header = () => {
   }, [])
 
   return (
-    <header className="fixed top-0 z-1000 text-white bg-primary flex flex-col justify-between h-auto items-center w-full text-base">
+    <header className="fixed top-0 z-1000 text-white bg-primary flex flex-col justify-between h-auto items-center w-screen text-base">
       <section ref={logoSection} className="w-full h-[7vh] py-1 px-8">
         <img src="/logo_acortado.svg" alt="tifosi_logo" className="h-full w-auto" />
       </section>

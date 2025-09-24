@@ -15,7 +15,7 @@ export default async function HomePage() {
   const { user } = await payload.auth({ headers })
 
   return (
-    <div className="bg-background font-primary">
+    <div className="bg-primary font-primary w-screen overflow-hidden">
       <Header />
       <Landing />
       <Footer />
